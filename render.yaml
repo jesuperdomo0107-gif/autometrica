@@ -51,7 +51,6 @@ services:
   - type: web
     name: autometrica-web
     runtime: static
-    region: ohio
     rootDir: autometrica-full/frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
