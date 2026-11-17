@@ -1,0 +1,30 @@
+CORRER AUTOMÉTRICA EN VISUAL STUDIO CODE
+=========================================
+Requisitos: Python 3.12 (https://python.org), Node.js 22 (https://nodejs.org). PostgreSQL es opcional (sin él usa SQLite).
+
+1. Descomprime el ZIP y abre la carpeta en VS Code (Archivo > Abrir carpeta).
+2. Abre una terminal (Ctrl+Ñ) y ejecuta:
+
+   BACKEND
+     cd autometrica-full/backend
+     python -m venv venv
+     venv\Scripts\activate          (Windows)   |   source venv/bin/activate  (Mac/Linux)
+     pip install -r requirements.txt
+     python -m uvicorn app.main:app --reload
+   -> http://127.0.0.1:8000/docs
+
+   FRONTEND (otra terminal)
+     cd autometrica-full/frontend
+     npm install
+     npm run dev
+   -> http://localhost:5173
+
+   Atajo en Windows: doble clic a iniciar_proyecto.bat
+   Atajo VS Code: Ctrl+Shift+P > "Tasks: Run Task" > "Correr TODO"
+
+3. Crear un administrador: entra a /registro-taller en la app.
+
+NOTAS
+- Los archivos .env incluidos NO traen claves. Pega tu NUEVA clave de Resend en backend/.env si quieres correos.
+- NO subas los .env a GitHub (ya están en .gitignore).
+- Para publicar en Render sigue DEPLOY_README.txt.

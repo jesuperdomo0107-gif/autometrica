@@ -1,0 +1,56 @@
+# ===== Secretos y variables de entorno (NUNCA subir) =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ===== Python =====
+__pycache__/
+_pycache_/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ===== Entornos virtuales =====
+venv/
+.venv/
+env/
+ENV/
+
+# ===== Bases de datos locales =====
+*.db
+*.sqlite
+*.sqlite3
+autometrica_db.db
+
+# ===== Node / Frontend =====
+node_modules/
+frontend/dist/
+**/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vite/
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Archivos temporales / de trabajo local =====
+scratch_*.json
+*.bak
+*.tmp
+*.swp
+
+# ===== Sistema operativo / IDE =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

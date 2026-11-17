@@ -1,0 +1,75 @@
+/* src/pages/PanelMecanico.css — Estilos del dashboard del mecánico */
+
+/* ── Grid de KPIs ──────────────────────────────────────────── */
+.kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.kpi-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-borde);
+  transition: box-shadow 0.2s;
+}
+
+.kpi-card:hover {
+  box-shadow: var(--sombra-md);
+}
+
+.kpi-card__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.kpi-card__icon--blue   { background: #DBEAFE; color: #1E3A8A; }
+.kpi-card__icon--orange { background: #FFEDD5; color: #EA580C; }
+.kpi-card__icon--green  { background: #DCFCE7; color: #15803D; }
+.kpi-card__icon--purple { background: #EDE9FE; color: #7C3AED; }
+
+.kpi-card__numero {
+  font-size: 1.9rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+  color: var(--color-texto);
+}
+
+.kpi-card__label {
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ── Sección de órdenes urgentes ───────────────────────────── */
+.panel-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--color-texto);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Acciones rápidas ──────────────────────────────────────── */
+.acciones-rapidas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}

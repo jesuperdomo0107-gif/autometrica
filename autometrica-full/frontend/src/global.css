@@ -1,0 +1,527 @@
+/* src/global.css
+   Sistema de diseño global — AutoMétrica
+   ─────────────────────────────────────────
+   Fuentes: Poppins (cuerpo) · Montserrat (titulares)
+   Ya cargadas en index.html desde Google Fonts
+*/
+
+/* ── 1. Variables CSS (Design Tokens - Identidad Visual Oficial) ─── */
+:root {
+  /* Paleta de Colores de Identidad Visual */
+  --color-primario:    #0096F5;   /* Azul Corporativo: Botones, íconos, elementos interactivos */
+  --color-primario-hov:#007BD6;   /* Azul Corporativo Hover */
+  --color-dark-navy:   #071A3D;   /* Azul Oscuro: Navbar, sidebar, encabezados */
+  --color-sidebar:     #071A3D;   /* Azul Oscuro para menú lateral */
+  --color-acento:      #0096F5;   /* Azul Acento */
+  --color-acento-hov:  #007BD6;
+
+  /* Neutros */
+  --color-fondo:       #F4F4F4;   /* Gris Claro de fondo de secciones y app */
+  --color-blanco:      #FFFFFF;   /* Blanco puro para tarjetas y formularios */
+  --color-borde:       #E5E7EB;   /* Borde gris claro */
+  --color-borde-foc:   #0096F5;   /* Borde en foco */
+
+  /* Textos */
+  --color-texto:       #000000;   /* Negro legibilidad y contraste */
+  --color-texto-suave: #4B5563;   /* Gris oscuro texto secundario */
+  --color-texto-muted: #9CA3AF;   /* Gris suave */
+
+  /* Tipografías Oficiales */
+  --fuente-titulos:    'Montserrat', sans-serif;
+  --fuente-subtitulos: 'Poppins', sans-serif;
+  --fuente-cuerpo:     'Roboto', 'Poppins', sans-serif;
+
+  /* Estados de reparación */
+  --estado-recibido:   #E0F2FE;
+  --estado-recibido-t: #0096F5;
+  --estado-diagnostico:#FEF9C3;
+  --estado-diagnostico-t:#854D0E;
+  --estado-reparacion: #FEE2E2;
+  --estado-reparacion-t:#991B1B;
+  --estado-finalizado: #DCFCE7;
+  --estado-finalizado-t:#166534;
+  --estado-cancelado:  #F1F5F9;
+  --estado-cancelado-t:#475569;
+
+  /* Radios y sombras */
+  --radio-sm:  6px;
+  --radio-md:  10px;
+  --radio-lg:  14px;
+  --sombra-sm: 0 2px 6px rgba(7, 26, 61, 0.06);
+  --sombra-md: 0 6px 20px rgba(7, 26, 61, 0.10);
+}
+
+/* ── 2. Reset y Base ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-dark-navy);
+}
+
+h4, h5, h6 {
+  font-family: var(--fuente-subtitulos);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-dark-navy);
+}
+
+a {
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── 3. Botones ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radio-md);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primario {
+  background: var(--color-primario);
+  color: #fff;
+}
+.btn--primario:hover {
+  background: var(--color-primario-hov);
+  box-shadow: var(--sombra-sm);
+}
+
+.btn--acento {
+  background: var(--color-acento);
+  color: #fff;
+}
+.btn--acento:hover {
+  background: var(--color-acento-hov);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-primario);
+  border: 1.5px solid var(--color-primario);
+}
+.btn--outline:hover {
+  background: #EFF6FF;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-texto-suave);
+  border: 1.5px solid var(--color-borde);
+}
+.btn--ghost:hover {
+  background: var(--color-fondo);
+}
+
+.btn--danger {
+  background: #EF4444;
+  color: #fff;
+}
+.btn--danger:hover {
+  background: #DC2626;
+}
+
+.btn--sm {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: var(--radio-sm);
+}
+
+.btn--lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── 4. Formularios ────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-borde-foc);
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: #EF4444;
+  margin-top: 4px;
+}
+
+/* ── 5. Tarjetas ───────────────────────────────────────────── */
+.card {
+  background: var(--color-blanco);
+  border-radius: var(--radio-lg);
+  padding: 24px;
+  box-shadow: var(--sombra-sm);
+  border: 1px solid var(--color-borde);
+}
+
+.card--sm {
+  padding: 16px;
+  border-radius: var(--radio-md);
+}
+
+/* ── 6. Tablas ─────────────────────────────────────────────── */
+.tabla-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radio-md);
+  border: 1px solid var(--color-borde);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.tabla thead {
+  background: var(--color-fondo);
+}
+
+.tabla th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-texto-suave);
+  border-bottom: 1px solid var(--color-borde);
+  white-space: nowrap;
+}
+
+.tabla td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-borde);
+  vertical-align: middle;
+  color: var(--color-texto);
+}
+
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla tbody tr:hover {
+  background: #F8FAFC;
+}
+
+/* ── 7. Badges de estado ───────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.badge--recibido     { background: var(--estado-recibido);    color: var(--estado-recibido-t); }
+.badge--diagnostico  { background: var(--estado-diagnostico); color: var(--estado-diagnostico-t); }
+.badge--reparacion   { background: var(--estado-reparacion);  color: var(--estado-reparacion-t); }
+.badge--finalizado   { background: var(--estado-finalizado);  color: var(--estado-finalizado-t); }
+.badge--cancelado    { background: var(--estado-cancelado);   color: var(--estado-cancelado-t); }
+.badge--vip          { background: #FEF3C7; color: #92400E; }
+
+/* ── 8. Utilidades ─────────────────────────────────────────── */
+.flex        { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-sm      { gap: 8px; }
+.gap-md      { gap: 16px; }
+.gap-lg      { gap: 24px; }
+.texto-muted { color: var(--color-texto-suave); }
+.texto-sm    { font-size: 0.85rem; }
+.texto-lg    { font-size: 1.1rem; }
+.w-full      { width: 100%; }
+.mt-sm       { margin-top: 8px; }
+.mt-md       { margin-top: 16px; }
+.mt-lg       { margin-top: 24px; }
+
+/* ── 9. Buscador ───────────────────────────────────────────── */
+.buscador {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.buscador i {
+  position: absolute;
+  left: 12px;
+  color: var(--color-texto-muted);
+  pointer-events: none;
+}
+
+.buscador input {
+  padding-left: 36px;
+}
+
+/* ── 10. Empty state ───────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-texto-suave);
+}
+
+.empty-state i {
+  font-size: 2.5rem;
+  color: var(--color-texto-muted);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+}
+
+/* ── 11. Spinner de carga ──────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.spinner--dark {
+  border-color: rgba(0,0,0,0.1);
+  border-top-color: var(--color-primario);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── 12. Alerta de error/éxito ─────────────────────────────── */
+.alerta {
+  padding: 12px 16px;
+  border-radius: var(--radio-md);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.alerta--error   { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; }
+.alerta--exito   { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+.alerta--info    { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+
+/* ── 13. Header de sección con botón ──────────────────────── */
+.seccion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.seccion-header h1 {
+  font-size: 1.3rem;
+}
+
+.seccion-header__izq {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.seccion-header__subtitulo {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  font-weight: 400;
+}
+
+/* ── 14. Reglas de Impresión Limpia y Exportación PDF (HU33, RF20, RF35) ── */
+@media print {
+  aside.sidebar,
+  .panel-layout__topbar,
+  .btn,
+  .btn-primario,
+  .btn-secundario,
+  .pestañas-header,
+  .busqueda-box,
+  button {
+    display: none !important;
+  }
+
+  body, .panel-layout, .layout {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .panel-layout__main, .layout__content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 20px !important;
+  }
+
+  .card, .tabla-custom {
+    box-shadow: none !important;
+    border: 1px solid #cccccc !important;
+  }
+}
+
+/* ── 15. Campos Obligatorios y Validación Visual ─────────── */
+.campo-obligatorio-asterisco {
+  color: #ef4444 !important;
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+.campo-obligatorio-mensaje {
+  color: #ef4444;
+  font-size: 0.78rem;
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+}
+
+.form-aviso-obligatorio {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-aviso-obligatorio .campo-obligatorio-asterisco {
+  font-size: 0.95rem;
+}
+
+/* ── 16. Cronómetro en Vivo para Mecánicos ───────────────── */
+.cronometro-activo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 1.5px solid #22c55e;
+  color: #15803d;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: 'Montserrat', monospace, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  animation: pulso-cronometro 2s infinite ease-in-out;
+}
+
+.cronometro-activo i {
+  color: #16a34a;
+}
+
+@keyframes pulso-cronometro {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.cronometro-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #ffffff;
+}
+
+.cronometro-banner__timer {
+  font-size: 1.3rem;
+  font-family: 'Montserrat', monospace, sans-serif;
+  font-weight: 800;
+  color: #4ade80;
+  letter-spacing: 1px;
+}
+

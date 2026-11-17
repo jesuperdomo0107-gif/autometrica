@@ -1,0 +1,166 @@
+/* src/pages/CitasCliente.css */
+.citas-cliente-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.citas-banner {
+  background: linear-gradient(135deg, rgba(7, 26, 61, 0.92) 0%, rgba(0, 150, 245, 0.88) 100%), url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+  color: #ffffff;
+  padding: 26px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 10px 20px -5px rgba(0, 150, 245, 0.25);
+}
+
+.citas-banner h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.citas-banner p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.grid-citas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.tarjeta-cita {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-cita:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-cita h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #1e293b;
+}
+
+.tarjeta-cita-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fecha-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0096F5;
+  background: #eff6ff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.alerta-estado-cita {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.alerta-estado-cita i {
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.alerta-estado-cita strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.alerta-estado-cita p {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.alerta-cita-confirmada {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.alerta-cita-confirmada i {
+  color: #15803d;
+}
+
+.alerta-cita-cancelada {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.alerta-cita-cancelada i {
+  color: #dc2626;
+}
+
+.alerta-cita-pendiente {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.alerta-cita-pendiente i {
+  color: #d97706;
+}
+
+.tarjeta-confirmada {
+  border-left: 4px solid #16a34a;
+}
+
+.tarjeta-cancelada {
+  border-left: 4px solid #dc2626;
+  opacity: 0.88;
+}
+
+.tarjeta-pendiente {
+  border-left: 4px solid #d97706;
+}
+
+.btn-cancelar-cliente {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-cancelar-cliente:hover {
+  background: #fee2e2;
+}
+
+

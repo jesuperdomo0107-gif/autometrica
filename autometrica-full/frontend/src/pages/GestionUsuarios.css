@@ -1,0 +1,28 @@
+/* src/pages/GestionUsuarios.css */
+.usuarios-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.badge-rol {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge-rol.admin {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.badge-rol.mecanico {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge-rol.cliente {
+  background-color: #f1f5f9;
+  color: #475569;
+}

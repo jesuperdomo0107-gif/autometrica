@@ -1,0 +1,10 @@
+# Versiones fijadas = las probadas contra PostgreSQL con Python 3.12.
+# Sin fijar, un build nuevo en Render puede traer versiones incompatibles.
+fastapi==0.163.2
+uvicorn[standard]==0.54.0
+SQLAlchemy==2.1.9
+psycopg2-binary==2.9.13
+pydantic[email]==2.14.3
+pydantic-settings==2.16.3
+bcrypt==5.0.0
+resend==2.54.0

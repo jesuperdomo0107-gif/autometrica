@@ -1,0 +1,83 @@
+/* src/components/Modal.css */
+
+/* Overlay oscuro de fondo */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Contenedor del modal */
+.modal {
+  background: var(--color-blanco);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.22s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Cabecera del modal */
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.modal__titulo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-texto);
+}
+
+.modal__cerrar {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto-suave);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal__cerrar:hover {
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+/* Cuerpo del modal */
+.modal__body {
+  padding: 24px;
+}
+
+/* Pie del modal con botones */
+.modal__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-borde);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

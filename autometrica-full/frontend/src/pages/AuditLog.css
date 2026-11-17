@@ -1,0 +1,21 @@
+/* src/pages/AuditLog.css */
+.audit-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.audit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge-accion {
+  background-color: #ede9fe;
+  color: #5b21b6;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

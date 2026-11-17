@@ -1,0 +1,67 @@
+# render.yaml — Blueprint de AutoMétrica para Render (plan gratuito)
+# Crea: PostgreSQL + Web Service (FastAPI) + Static Site (React).
+# Uso: Dashboard > New + > Blueprint > elige el repo. Render te pedirá
+# los valores marcados con "sync: false" (secretos / URLs).
+# Este archivo debe estar en la RAÍZ del repositorio (junto a autometrica-full/).
+
+databases:
+  - name: autometrica-db
+    plan: free              # expira a los 30 días, sin backups (ver DEPLOY_README.txt)
+    region: ohio            # misma región para TODOS los recursos
+    databaseName: autometrica
+    user: autometrica
+
+services:
+  # ───────────── Backend (FastAPI) ─────────────
+  - type: web
+    name: autometrica-api
+    runtime: python
+    plan: free
+    region: ohio
+    rootDir: autometrica-full/backend
+    buildCommand: bash build.sh
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL            # Internal Database URL, automática
+        fromDatabase:
+          name: autometrica-db
+          property: connectionString
+      - key: FRONTEND_URL            # URL del Static Site, sin "/" final
+        sync: false
+      - key: ADMIN_EMAIL             # superusuario creado por build.sh
+        sync: false
+      - key: ADMIN_PASSWORD          # 8+ caracteres, mayúscula, minúscula y especial
+        sync: false
+      - key: ADMIN_NAME
+        value: Administrador
+      - key: RESEND_API_KEY          # NUEVA clave (la anterior estaba expuesta)
+        sync: false
+      - key: RESEND_FROM
+        value: "AutoMétrica <onboarding@resend.dev>"
+
+  # ───────────── Frontend (React + Vite) ─────────────
+  - type: web
+    name: autometrica-web
+    runtime: static
+    region: ohio
+    rootDir: autometrica-full/frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_URL            # https://autometrica-api.onrender.com/api/v1
+        sync: false
+      - key: NODE_VERSION
+        value: "22"
+    routes:
+      - type: rewrite                # necesario para React Router
+        source: /*
+        destination: /index.html

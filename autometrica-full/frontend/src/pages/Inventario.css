@@ -1,0 +1,158 @@
+/* src/pages/Inventario.css */
+.inventario-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.alerta-stock {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #fee2e2;
+  border-left: 5px solid #ef4444;
+  color: #991b1b;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.alerta-stock i {
+  font-size: 1.8rem;
+}
+
+.inventario-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.busqueda-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 10px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  flex: 1;
+  max-width: 450px;
+}
+
+.busqueda-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.tabla-custom {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-custom th,
+.tabla-custom td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tabla-custom th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+}
+
+.fila-alerta {
+  background-color: #fff1f2;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-danger {
+  background-color: #fecdd3;
+  color: #9f1239;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.btn-primario {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secundario {
+  background-color: #e2e8f0;
+  color: #334155;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-accion {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 1rem;
+  color: #475569;
+}
+
+.btn-accion.danger {
+  color: #ef4444;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}

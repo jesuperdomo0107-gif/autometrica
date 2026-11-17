@@ -1,0 +1,162 @@
+/* src/pages/Registro.css */
+.registro-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: var(--color-fondo, #f8fafc);
+}
+
+/* Fondo decorativo según el rol */
+.registro-page__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 24px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.registro-page__left--cliente {
+  background: linear-gradient(150deg, rgba(15, 32, 64, 0.92) 0%, rgba(30, 58, 138, 0.88) 100%), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+}
+
+.registro-page__left--mecanico {
+  background: linear-gradient(150deg, rgba(15, 23, 42, 0.93) 0%, rgba(2, 132, 199, 0.88) 100%), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+}
+
+.registro-page__left--admin {
+  background: linear-gradient(150deg, rgba(15, 23, 42, 0.94) 0%, rgba(30, 58, 138, 0.92) 100%), url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+}
+
+.registro-page__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.registro-container {
+  width: 100%;
+  max-width: 580px;
+  margin: auto;
+}
+
+.registro-card {
+  background: #fff;
+  border-radius: var(--radio-lg, 16px);
+  padding: 32px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-borde, #e2e8f0);
+}
+
+.registro-card h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+  color: #0f172a;
+}
+
+.registro-card__sub {
+  color: var(--color-texto-suave, #64748b);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+/* Selector de rol tipo Tabs */
+.registro-roles-tabs {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.registro-role-tab {
+  flex: 1;
+  text-align: center;
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.registro-role-tab:hover {
+  color: #0f172a;
+  background: rgba(255,255,255,0.6);
+  text-decoration: none;
+}
+
+.registro-role-tab.active {
+  background: #fff;
+  color: var(--color-primario, #1e3a8a);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.registro-role-tab--mecanico.active {
+  color: #0284c7;
+}
+
+.registro-role-tab--taller.active {
+  color: #2563eb;
+}
+
+.registro-role-tab--admin.active {
+  color: #059669;
+}
+
+.registro-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave, #64748b);
+}
+
+@media (max-width: 900px) {
+  .registro-page {
+    grid-template-columns: 1fr;
+  }
+  .registro-page__left {
+    display: none;
+  }
+  .registro-page__right {
+    padding: 20px 16px;
+  }
+}
+
+/* Botón de retorno a la página principal */
+.btn-volver-inicio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.btn-volver-inicio:hover {
+  color: #0f172a;
+  background-color: #e2e8f0;
+  transform: translateX(-3px);
+  text-decoration: none;
+}
+

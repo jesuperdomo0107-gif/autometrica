@@ -1,0 +1,54 @@
+/* src/pages/GestionVehiculos.css — Estilos de la página de vehículos */
+
+.vehiculos-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.vehiculos-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+/* Botones de filtro por tipo */
+.vehiculos-filtros {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-borde);
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s;
+  color: var(--color-texto-suave);
+}
+
+.filtro-btn:hover {
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+.filtro-btn.active {
+  background: var(--color-primario);
+  color: #fff;
+  border-color: var(--color-primario);
+}
+
+/* Ícono de tipo de vehículo en la tabla */
+.tipo-icon {
+  font-size: 1.2rem;
+}
